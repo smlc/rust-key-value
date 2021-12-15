@@ -4,10 +4,10 @@ use kvs::KvStore;
 
 fn main() {
 
-    let matches = App::new("kvs")
-        .version("0.1.0")
-        .author("Marlon S. <sm@mail.com>")
-        .about("Key value store")
+    let matches = App::new(env!("CARGO_PKG_NAME"))
+        .version(env!("CARGO_PKG_VERSION"))
+        .author(env!("CARGO_PKG_AUTHORS"))
+        .about(env!("CARGO_PKG_DESCRIPTION"))
         .setting(AppSettings::SubcommandRequired)
         .subcommand(
             SubCommand::with_name("set")
