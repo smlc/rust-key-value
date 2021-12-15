@@ -1,21 +1,24 @@
+use std::collections::HashMap;
+
 #[warn(unused_variables)]
 
 pub struct KvStore {
+    dict: HashMap<String, String>
 }
 
 impl KvStore {
     pub fn new() -> KvStore {
-        KvStore{}
+        KvStore{ dict: HashMap::new()}
     }
     pub fn set(&mut self, _key: String, _value: String) {
-        panic!("unimplemented")
+        self.dict.insert(_key, _value);
     }
     
     pub fn get(&self, _key: String) -> Option<String> {
-        panic!("unimplemented")
+        return self.dict.get(&_key).cloned();
     }
 
     pub fn remove(&mut self, _key: String){
-        panic!("unimplemented")
+        self.dict.remove(&_key);
     }
 }
